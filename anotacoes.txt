@@ -1,3 +1,6 @@
-docker run --name mongonode -p 27017:27017 -d -t mongo
+docker run --name mongonode -p 27017:27017 -d -t mongo 
+ou versão mais leve
+docker pull tutum/mongodb
+docker run --name mongonode -d -p 27017:27017 -e AUTH=no tutum/mongodb
 
 Por padrão docker do node vem sem usuário e senha
