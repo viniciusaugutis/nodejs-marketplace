@@ -1,0 +1,3 @@
+docker run --name mongonode -p 27017:27017 -d -t mongo
+
+Por padrão docker do node vem sem usuário e senha

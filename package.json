@@ -7,7 +7,8 @@
     "start": "nodemon src/index.js"
   },
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.8.10"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
