@@ -4,7 +4,12 @@ class AdController {
   // index, show, store, update, destroy
 
   async index (req, res) {
-    const ads = await Ad.find()
+    const ads = await Ad.paginate({}, {
+      limit: req.query.limit || 10,
+      page: req.query.page || 1,
+      populate: ['author'],
+      sort: '-createdAt'
+    })
     return res.json(ads)
   }
 
@@ -72,7 +77,7 @@ class AdController {
 
     await Ad.findByIdAndDelete(id)
 
-    return res.json('Dados deletados com sucesso')
+    return res.send() // retorna nobody
   }
 }
 
