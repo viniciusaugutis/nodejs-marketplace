@@ -15,4 +15,8 @@ routes.get('/ads/:id', controllers.AdController.show)
 routes.delete('/ads/:id', controllers.AdController.destroy)
 routes.get('/ads', controllers.AdController.index)
 
+/* Purchase routes */
+
+routes.post('/purchases', controllers.PurchaseController.store)
+
 module.exports = routes
