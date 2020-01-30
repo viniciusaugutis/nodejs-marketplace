@@ -4,7 +4,25 @@ class AdController {
   // index, show, store, update, destroy
 
   async index (req, res) {
-    const ads = await Ad.paginate({}, {
+    const filters = {}
+
+    if (req.query.price_min || req.query.price_max) {
+      filters.price = {}
+
+      if (req.query.price_min) {
+        filters.price.$gte = req.query.price_min
+      }
+
+      if (req.query.price_max) {
+        filters.price.$lte = req.query.price_max
+      }
+    }
+
+    if (req.query.title) {
+      filters.title = new RegExp(req.query.title, 'i') // usa regex para achar a palavra em qualquer lugar no texto e transfroma expressao regular em case sensitive
+    }
+
+    const ads = await Ad.paginate(filters, {
       limit: req.query.limit || 10,
       page: req.query.page || 1,
       populate: ['author'],
