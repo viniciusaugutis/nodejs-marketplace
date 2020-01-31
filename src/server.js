@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const databaseConfig = require('../config/database')
+const databaseConfig = require('./config/database')
 
 class App {
   constructor () {
