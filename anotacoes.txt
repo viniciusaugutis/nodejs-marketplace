@@ -4,3 +4,7 @@ docker pull tutum/mongodb
 docker run --name mongonode -d -p 27017:27017 -e AUTH=no tutum/mongodb
 
 Por padrão docker do node vem sem usuário e senha
+
+REDIS - Para enfileiramento e cache
+
+docker run --name noderedis -p 6379:6379 -d -t redis:alpine
