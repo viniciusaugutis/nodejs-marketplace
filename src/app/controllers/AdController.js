@@ -31,8 +31,7 @@ class AdController {
     return res.json(ads)
   }
 
-  async show (req, res, next) {
-    throw new Error()
+  async show (req, res) {
     const { id } = req.params
 
     if (!id) {

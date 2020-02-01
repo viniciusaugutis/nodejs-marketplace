@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 const mongoose = require('mongoose')
 const databaseConfig = require('./config/database')
@@ -39,9 +41,9 @@ class App {
   }
 
   exception () {
-    // if (process.env.NODE_ENV === 'production') {
-    this.express.use(Sentry.Handlers.errorHandler())
-    // }
+    if (process.env.NODE_ENV === 'production') {
+      this.express.use(Sentry.Handlers.errorHandler())
+    }
     this.express.use(async (err, req, res, next) => {
       // midlleware quando recebe 4 parâmetros, o primeiro parâmetro é o erro
       if (err instanceof validate.ValidationError) {
