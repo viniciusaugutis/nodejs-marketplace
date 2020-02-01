@@ -10,7 +10,7 @@ class PurchaseMail {
 
     const { ad, user, content } = job.data
 
-    await Mail.sendMail({
+    await Mail.sendMmail({
       from: '"Vinicius Augutis" <vinicius_augutis@hotmail.com>',
       to: ad.author.email,
       subject: `Solicitação de compra: ${ad.title}`,
